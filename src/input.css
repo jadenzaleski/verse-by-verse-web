@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@source "../*.html";
+@source "../js/*.js";
+
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "vbv";
+  default: true;
+  color-scheme: light;
+
+  --color-base-100: #f7f6fa;
+  --color-base-200: #efedf5;
+  --color-base-300: #ddd9e8;
+  --color-base-content: #191627;
+
+  --color-primary: #604bb2;
+  --color-primary-content: #f7f6fa;
+  --color-secondary: #5bb275;
+  --color-secondary-content: #0f1c14;
+  --color-accent: #5bb275;
+  --color-accent-content: #0f1c14;
+  --color-neutral: #191627;
+  --color-neutral-content: #f7f6fa;
+
+  --color-info: #604bb2;
+  --color-success: #5bb275;
+  --color-warning: #a8801f;
+  --color-error: #b2404b;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Spectral", ui-serif, Georgia, serif;
+
+  --color-ink: #191627;
+  --color-paper: #f7f6fa;
+  --color-muted: #6e6883;
+  --color-rule: #ddd9e8;
+  --color-brand-violet: #604bb2;
+  --color-brand-green: #5bb275;
+}
+
+/* The app's icon gradient is authored in Display P3. Match it exactly on
+   wide-gamut screens; the hex values above remain the sRGB fallback. */
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --color-brand-violet: color(display-p3 0.36475 0.2981 0.67432);
+    --color-brand-green: color(display-p3 0.44312 0.69043 0.47852);
+  }
+}
+
+:root {
+  --measure: 34rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand-violet);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Scripture set at a reading measure, lighter and larger than UI text. */
+.verse {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.75rem, 1.1rem + 2.9vw, 3.5rem);
+  line-height: 1.32;
+  letter-spacing: -0.011em;
+  text-wrap: pretty;
+}
+
+/* A word held back for recall. Width matches the real word, so the blank
+   is the shape of the answer — the same cue the app gives you. */
+.gap {
+  font: inherit;
+  color: transparent;
+  padding: 0 0.06em;
+  border-bottom: 2px solid var(--color-brand-violet);
+  cursor: pointer;
+  transition: color 220ms ease, border-color 220ms ease;
+}
+
+.gap:hover {
+  background-color: color-mix(in srgb, var(--color-brand-violet) 8%, transparent);
+}
+
+.gap[aria-pressed="true"] {
+  color: inherit;
+  border-bottom-color: var(--color-brand-green);
+}
+
+/* Recitation transcript marks. */
+.said-missed {
+  color: var(--color-muted);
+  border-bottom: 2px solid var(--color-brand-violet);
+  padding: 0 0.06em;
+}
+
+.said-extra {
+  color: var(--color-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-brand-violet);
+  text-decoration-thickness: 2px;
+}
+
+/* Marginal verse-style reference numbers. */
+.ref-num {
+  font-family: var(--font-serif);
+  font-size: 0.72em;
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+  color: var(--color-brand-violet);
+}
