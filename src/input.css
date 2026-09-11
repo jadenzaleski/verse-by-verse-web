@@ -63,10 +63,6 @@
   }
 }
 
-:root {
-  --measure: 34rem;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -93,36 +89,6 @@ body {
   outline: 2px solid var(--color-brand-violet);
   outline-offset: 3px;
   border-radius: 2px;
-}
-
-/* Scripture set at a reading measure, lighter and larger than UI text. */
-.verse {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(1.75rem, 1.1rem + 2.9vw, 3.5rem);
-  line-height: 1.32;
-  letter-spacing: -0.011em;
-  text-wrap: pretty;
-}
-
-/* A word held back for recall. Width matches the real word, so the blank
-   is the shape of the answer — the same cue the app gives you. */
-.gap {
-  font: inherit;
-  color: transparent;
-  padding: 0 0.06em;
-  border-bottom: 2px solid var(--color-brand-violet);
-  cursor: pointer;
-  transition: color 220ms ease, border-color 220ms ease;
-}
-
-.gap:hover {
-  background-color: color-mix(in srgb, var(--color-brand-violet) 8%, transparent);
-}
-
-.gap[aria-pressed="true"] {
-  color: inherit;
-  border-bottom-color: var(--color-brand-green);
 }
 
 /* Recitation transcript marks. */
