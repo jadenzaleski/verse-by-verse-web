@@ -1,265 +1,287 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Verse by Verse — Bible memorization for iPhone</title>
-<meta name="description" content="Memorize scripture by reciting it out loud. Verse by Verse grades your recitation on-device and schedules each review with FSRS-6 spaced repetition. No account, no sync server.">
-<meta property="og:title" content="Verse by Verse">
-<meta property="og:description" content="Memorize scripture by reciting it out loud. On-device grading, FSRS-6 scheduling, no account.">
-<meta property="og:type" content="website">
-<link rel="icon" href="assets/favicon.png" sizes="64x64" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,300..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="dist/style.css">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Verse by Verse — Bible memorization for iPhone</title>
+    <meta content="Memorize scripture by reciting it out loud. Verse by Verse grades your recitation on-device and schedules each review with FSRS-6 spaced repetition. No account, no sync server."
+          name="description">
+    <meta content="Verse by Verse" property="og:title">
+    <meta content="Memorize scripture by reciting it out loud. On-device grading, FSRS-6 scheduling, no account."
+          property="og:description">
+    <meta content="website" property="og:type">
+    <link href="assets/favicon.png" rel="icon" sizes="64x64" type="image/png">
+    <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,300..600&display=swap"
+          rel="stylesheet">
+    <link href="dist/style.css" rel="stylesheet">
 </head>
 <body class="font-sans antialiased">
 
-<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
+<a class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+   href="#main">Skip
+    to content</a>
 
 <header class="sticky top-0 z-40 border-b border-rule/70 bg-paper/85 backdrop-blur">
-  <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8" aria-label="Main">
-    <a href="/" class="flex items-center gap-2.5">
-      <img src="assets/icon.png" alt="" width="26" height="26" class="h-[26px] w-[26px]">
-      <span class="text-lg font-semibold tracking-tight">Verse by Verse</span>
-    </a>
+    <nav aria-label="Main" class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
+        <a class="flex items-center gap-2.5" href="index.html">
+            <img alt="" class="h-[26px] w-[26px]" height="26" src="assets/icon.png" width="26">
+            <span class="text-lg font-semibold tracking-tight">Verse by Verse</span>
+        </a>
 
-    <div class="hidden items-center gap-7 md:flex">
-      <a href="#how" class="text-sm text-muted transition-colors hover:text-ink">How it works</a>
-      <a href="#recitation" class="text-sm text-muted transition-colors hover:text-ink">Recitation</a>
-      <a href="support.html" class="text-sm text-muted transition-colors hover:text-ink">Support</a>
-      <!-- TODO: replace href with the real App Store (or TestFlight) URL -->
-      <a href="#" class="btn btn-primary btn-sm px-4 font-semibold">Get the app</a>
+        <div class="hidden items-center gap-7 md:flex">
+            <a class="text-sm text-muted transition-colors hover:text-ink" href="#how">How it works</a>
+            <a class="text-sm text-muted transition-colors hover:text-ink" href="#recitation">Recitation</a>
+            <a class="text-sm text-muted transition-colors hover:text-ink" href="support.html">Support</a>
+            <!-- TODO: replace href with the real App Store (or TestFlight) URL -->
+            <a class="btn btn-primary btn-sm px-4 font-semibold" href="#">Get the app</a>
+        </div>
+
+        <button aria-controls="nav-menu" aria-expanded="false" class="btn btn-ghost btn-sm md:hidden" data-nav-toggle
+                type="button">
+            <span class="sr-only">Menu</span>
+            <svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"
+                 width="22">
+                <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="border-t border-rule/70 px-5 py-3 md:hidden" data-nav-menu hidden id="nav-menu">
+        <a class="block py-2 text-muted" href="#how">How it works</a>
+        <a class="block py-2 text-muted" href="#recitation">Recitation</a>
+        <a class="block py-2 text-muted" href="support.html">Support</a>
+        <a class="mt-2 inline-flex rounded-lg bg-brand-violet px-4 py-2 text-sm font-semibold text-paper" href="#">Get
+            the app</a>
     </div>
-
-    <button type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" class="btn btn-ghost btn-sm md:hidden">
-      <span class="sr-only">Menu</span>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </nav>
-
-  <div id="nav-menu" data-nav-menu hidden class="border-t border-rule/70 px-5 py-3 md:hidden">
-    <a href="#how" class="block py-2 text-muted">How it works</a>
-    <a href="#recitation" class="block py-2 text-muted">Recitation</a>
-    <a href="support.html" class="block py-2 text-muted">Support</a>
-    <a href="#" class="mt-2 inline-flex rounded-lg bg-brand-violet px-4 py-2 text-sm font-semibold text-paper">Get the app</a>
-  </div>
 </header>
 
 <main id="main">
 
-  <section class="mx-auto max-w-6xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24 sm:pb-28">
-    <img src="assets/icon.png" alt="" width="88" height="88" class="h-20 w-20 sm:h-22 sm:w-22">
+    <section class="mx-auto max-w-6xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24 sm:pb-28">
+        <img alt="" class="h-20 w-20 sm:h-22 sm:w-22" height="88" src="assets/icon.png" width="88">
 
-    <h1 class="mt-8 max-w-[22ch] text-4xl leading-[1.15] font-semibold tracking-tight sm:text-5xl">
-      Scripture memorization that asks you to say it out loud.
-    </h1>
-    <p class="mt-6 max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">
-      Add a passage, practice it by typing or reciting, and let spaced repetition
-      pick the day you review it next. Everything runs on your iPhone. There is no
-      account to create.
-    </p>
-
-    <div class="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-      <!-- TODO: replace href with the App Store listing URL -->
-      <a href="#" class="inline-flex shrink-0 transition-opacity hover:opacity-80">
-        <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="156" height="52" class="h-[52px] w-auto">
-      </a>
-      <!-- TODO: replace href with your public TestFlight invitation link -->
-      <a href="#" class="btn-outlined h-[52px] px-6">Join the TestFlight beta</a>
-    </div>
-    <p class="mt-4 text-sm text-muted">TestFlight builds ship ahead of each App Store release.</p>
-  </section>
-
-  <!-- How it works: a real three-step sequence, numbered like verses. -->
-  <section id="how" class="border-t border-rule/70 bg-base-200/60">
-    <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-      <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">How it works</h2>
-
-      <ol class="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-3">
-        <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
-          <span class="ref-num pt-1.5" aria-hidden="true">1</span>
-          <div>
-            <h3 class="text-xl font-semibold tracking-tight">Add a passage</h3>
-            <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
-              Search by book, chapter, and verse range, in the translation you read.
-              A passage can be a single verse or a whole psalm.
-            </p>
-          </div>
-        </li>
-
-        <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
-          <span class="ref-num pt-1.5" aria-hidden="true">2</span>
-          <div>
-            <h3 class="text-xl font-semibold tracking-tight">Practice it</h3>
-            <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
-              Type the passage from memory, or turn on the microphone and recite it.
-              Both are graded against the text, word by word.
-            </p>
-          </div>
-        </li>
-
-        <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
-          <span class="ref-num pt-1.5" aria-hidden="true">3</span>
-          <div>
-            <h3 class="text-xl font-semibold tracking-tight">Review when it counts</h3>
-            <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
-              FSRS-6 estimates when you are about to forget each passage and asks for
-              it on that day, not before.
-            </p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Recitation: the differentiator, shown as an actual graded transcript. -->
-  <section id="recitation" class="border-t border-rule/70">
-    <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 md:grid-cols-2 md:gap-16">
-      <div>
-        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">It listens to you recite.</h2>
-        <p class="mt-5 max-w-[48ch] leading-relaxed text-muted">
-          Saying a verse from memory is a different skill from recognizing it on the
-          page. Verse by Verse transcribes your recitation on your device and marks it
-          against the text: the words you got, the words you missed, the words you added.
+        <h1 class="mt-8 max-w-[22ch] text-4xl leading-[1.15] font-semibold tracking-tight sm:text-5xl">
+            Scripture memorization that asks you to say it out loud.
+        </h1>
+        <p class="mt-6 max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">
+            Add a passage, practice it by typing or reciting, and let spaced repetition
+            pick the day you review it next. Everything runs on your iPhone. There is no
+            account to create.
         </p>
-        <p class="mt-4 max-w-[48ch] leading-relaxed text-muted">
-          The audio is never uploaded. Transcription happens entirely on your iPhone.
-        </p>
-      </div>
 
-      <figure class="rounded-xl border border-rule bg-base-200/50 p-6 sm:p-8">
-        <figcaption class="text-sm text-muted">Marked against the text</figcaption>
-        <p class="mt-4 font-serif text-xl leading-[1.5] sm:text-2xl">
-          I have <span class="said-missed">hidden</span> your word in my heart,
-          that I might not <span class="said-extra">ever</span> sin against you.
-        </p>
-        <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-rule pt-4 text-sm text-muted">
-          <span><span class="font-medium text-ink">14</span> of 15 words</span>
-          <span class="flex items-center gap-2">
+        <div class="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <!-- TODO: replace href with the App Store listing URL -->
+            <a class="inline-flex shrink-0 transition-opacity hover:opacity-80" href="#">
+                <img alt="Download on the App Store" class="h-[52px] w-auto" height="52"
+                     src="assets/app-store-badge.svg"
+                     width="156">
+            </a>
+            <!-- TODO: replace href with your public TestFlight invitation link -->
+            <a class="btn-outlined h-[52px] px-6" href="#">Join the TestFlight beta</a>
+        </div>
+        <p class="mt-4 text-sm text-muted">TestFlight builds ship ahead of each App Store release.</p>
+    </section>
+
+    <!-- How it works: a real three-step sequence, numbered like verses. -->
+    <section class="border-t border-rule/70 bg-base-200/60" id="how">
+        <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+            <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">How it works</h2>
+
+            <ol class="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-3">
+                <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
+                    <span aria-hidden="true" class="ref-num pt-1.5">1</span>
+                    <div>
+                        <h3 class="text-xl font-semibold tracking-tight">Add a passage</h3>
+                        <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
+                            Search by book, chapter, and verse range, in the translation you read.
+                            A passage can be a single verse or a whole psalm.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
+                    <span aria-hidden="true" class="ref-num pt-1.5">2</span>
+                    <div>
+                        <h3 class="text-xl font-semibold tracking-tight">Practice it</h3>
+                        <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
+                            Type the passage from memory, or turn on the microphone and recite it.
+                            Both are graded against the text, word by word.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
+                    <span aria-hidden="true" class="ref-num pt-1.5">3</span>
+                    <div>
+                        <h3 class="text-xl font-semibold tracking-tight">Review when it counts</h3>
+                        <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
+                            FSRS-6 estimates when you are about to forget each passage and asks for
+                            it on that day, not before.
+                        </p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Recitation: the differentiator, shown as an actual graded transcript. -->
+    <section class="border-t border-rule/70" id="recitation">
+        <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 md:grid-cols-2 md:gap-16">
+            <div>
+                <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">It listens to you recite.</h2>
+                <p class="mt-5 max-w-[48ch] leading-relaxed text-muted">
+                    Saying a verse from memory is a different skill from recognizing it on the
+                    page. Verse by Verse transcribes your recitation on your device and marks it
+                    against the text: the words you got, the words you missed, the words you added.
+                </p>
+                <p class="mt-4 max-w-[48ch] leading-relaxed text-muted">
+                    The audio is never uploaded. Transcription happens entirely on your iPhone.
+                </p>
+            </div>
+
+            <figure class="rounded-xl border border-rule bg-base-200/50 p-6 sm:p-8">
+                <figcaption class="text-sm text-muted">Marked against the text</figcaption>
+                <p class="mt-4 font-serif text-xl leading-[1.5] sm:text-2xl">
+                    I have <span class="said-missed">hidden</span> your word in my heart,
+                    that I might not <span class="said-extra">ever</span> sin against you.
+                </p>
+                <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-rule pt-4 text-sm text-muted">
+                    <span><span class="font-medium text-ink">14</span> of 15 words</span>
+                    <span class="flex items-center gap-2">
             <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-violet"></span>
             1 missed
           </span>
-          <span class="flex items-center gap-2">
+                    <span class="flex items-center gap-2">
             <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-violet/50"></span>
             1 added
           </span>
+                </div>
+            </figure>
         </div>
-      </figure>
-    </div>
-  </section>
+    </section>
 
-  <!-- Schedule: the gradient encodes retention, and spacing encodes time. -->
-  <section class="border-t border-rule/70 bg-base-200/60">
-    <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-      <div class="max-w-[46ch]">
-        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">The schedule does the remembering.</h2>
-        <p class="mt-5 leading-relaxed text-muted">
-          Each time you practice, FSRS-6 updates how firmly a passage is held and pushes
-          the next review further out. Reviews spread apart as the passage settles in.
-        </p>
-      </div>
+    <!-- Schedule: the gradient encodes retention, and spacing encodes time. -->
+    <section class="border-t border-rule/70 bg-base-200/60">
+        <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+            <div class="max-w-[46ch]">
+                <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">The schedule does the remembering.</h2>
+                <p class="mt-5 leading-relaxed text-muted">
+                    Each time you practice, FSRS-6 updates how firmly a passage is held and pushes
+                    the next review further out. Reviews spread apart as the passage settles in.
+                </p>
+            </div>
 
-      <div class="mt-16 pr-4 pl-2 sm:px-6">
-        <div class="relative h-0.5 rounded-full bg-gradient-to-r from-brand-green to-brand-violet">
-          <div class="absolute top-1/2 -translate-y-1/2" style="left:0%">
-            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green ring-4 ring-base-200"></span>
-            <span class="absolute top-full mt-3.5 block whitespace-nowrap text-xs text-muted">1 day</span>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2" style="left:27%">
-            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green/80 ring-4 ring-base-200"></span>
-            <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">3 days</span>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2" style="left:51%">
-            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green/60 ring-4 ring-base-200"></span>
-            <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">8 days</span>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2" style="left:74%">
-            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-violet/70 ring-4 ring-base-200"></span>
-            <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">3 weeks</span>
-          </div>
-          <div class="absolute top-1/2 -translate-y-1/2" style="left:100%">
-            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-violet ring-4 ring-base-200"></span>
-            <span class="absolute top-full right-0 mt-3.5 block whitespace-nowrap text-xs text-muted">2 months</span>
-          </div>
+            <div class="mt-16 pr-4 pl-2 sm:px-6">
+                <div class="relative h-0.5 rounded-full bg-gradient-to-r from-brand-green to-brand-violet">
+                    <div class="absolute top-1/2 -translate-y-1/2" style="left:0%">
+                        <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green ring-4 ring-base-200"></span>
+                        <span class="absolute top-full mt-3.5 block whitespace-nowrap text-xs text-muted">1 day</span>
+                    </div>
+                    <div class="absolute top-1/2 -translate-y-1/2" style="left:27%">
+                        <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green/80 ring-4 ring-base-200"></span>
+                        <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">3 days</span>
+                    </div>
+                    <div class="absolute top-1/2 -translate-y-1/2" style="left:51%">
+                        <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green/60 ring-4 ring-base-200"></span>
+                        <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">8 days</span>
+                    </div>
+                    <div class="absolute top-1/2 -translate-y-1/2" style="left:74%">
+                        <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-violet/70 ring-4 ring-base-200"></span>
+                        <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">3 weeks</span>
+                    </div>
+                    <div class="absolute top-1/2 -translate-y-1/2" style="left:100%">
+                        <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-violet ring-4 ring-base-200"></span>
+                        <span class="absolute top-full right-0 mt-3.5 block whitespace-nowrap text-xs text-muted">2 months</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-14 text-xs text-muted">Intervals shown are illustrative. Yours come from how you actually
+                answer.</p>
         </div>
-      </div>
+    </section>
 
-      <p class="mt-14 text-xs text-muted">Intervals shown are illustrative. Yours come from how you actually answer.</p>
-    </div>
-  </section>
+    <!-- Local-first. -->
+    <section class="border-t border-rule/70" id="privacy">
+        <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 md:grid-cols-2 md:gap-16">
+            <div>
+                <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Your practice stays on your phone.</h2>
+                <p class="mt-5 max-w-[48ch] leading-relaxed text-muted">
+                    There is no account, no login, and no sync server. Your passages, your progress,
+                    and your recitations live in local storage on your device. The only thing Verse
+                    by Verse fetches from the internet is the Bible text itself.
+                </p>
+                <p class="mt-6">
+                    <a class="font-medium text-brand-violet underline decoration-brand-violet/30 underline-offset-4 transition-colors hover:decoration-brand-violet"
+                       href="privacy.html">Read
+                        the privacy policy</a>
+                </p>
+            </div>
 
-  <!-- Local-first. -->
-  <section id="privacy" class="border-t border-rule/70">
-    <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 md:grid-cols-2 md:gap-16">
-      <div>
-        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Your practice stays on your phone.</h2>
-        <p class="mt-5 max-w-[48ch] leading-relaxed text-muted">
-          There is no account, no login, and no sync server. Your passages, your progress,
-          and your recitations live in local storage on your device. The only thing Verse
-          by Verse fetches from the internet is the Bible text itself.
-        </p>
-        <p class="mt-6">
-          <a href="privacy.html" class="font-medium text-brand-violet underline decoration-brand-violet/30 underline-offset-4 transition-colors hover:decoration-brand-violet">Read the privacy policy</a>
-        </p>
-      </div>
-
-      <dl class="self-center">
-        <div class="border-t border-rule py-5">
-          <dt class="text-lg font-semibold tracking-tight">Nothing to sign up for</dt>
-          <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">No account, no email address, no password.</dd>
+            <dl class="self-center">
+                <div class="border-t border-rule py-5">
+                    <dt class="text-lg font-semibold tracking-tight">Nothing to sign up for</dt>
+                    <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">No account, no email address, no
+                        password.
+                    </dd>
+                </div>
+                <div class="border-t border-rule py-5">
+                    <dt class="text-lg font-semibold tracking-tight">Recitation never leaves the device</dt>
+                    <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">Your voice is transcribed on your
+                        iPhone and the audio is not uploaded.
+                    </dd>
+                </div>
+                <div class="border-t border-b border-rule py-5">
+                    <dt class="text-lg font-semibold tracking-tight">No trackers</dt>
+                    <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">No third-party analytics or
+                        advertising software of any kind.
+                    </dd>
+                </div>
+            </dl>
         </div>
-        <div class="border-t border-rule py-5">
-          <dt class="text-lg font-semibold tracking-tight">Recitation never leaves the device</dt>
-          <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">Your voice is transcribed on your iPhone and the audio is not uploaded.</dd>
-        </div>
-        <div class="border-t border-b border-rule py-5">
-          <dt class="text-lg font-semibold tracking-tight">No trackers</dt>
-          <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">No third-party analytics or advertising software of any kind.</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
+    </section>
 
-  <section class="mesh-band border-t border-rule/70 text-paper">
-    <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-      <h2 class="max-w-[20ch] text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
-        Start with one verse.
-      </h2>
-      <div class="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-        <a href="#" class="inline-flex shrink-0 transition-opacity hover:opacity-80">
-          <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="156" height="52" class="h-[52px] w-auto">
-        </a>
-        <a href="#" class="inline-flex h-[52px] items-center justify-center rounded-[14px] border-[1.5px] border-paper/50 px-6 font-semibold text-paper transition-colors hover:border-paper hover:bg-paper/10">
-          Join the TestFlight beta
-        </a>
-      </div>
-    </div>
-  </section>
+    <section class="mesh-band border-t border-rule/70 text-paper">
+        <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+            <h2 class="max-w-[20ch] text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
+                Start with one verse.
+            </h2>
+            <div class="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+                <a class="inline-flex shrink-0 transition-opacity hover:opacity-80" href="#">
+                    <img alt="Download on the App Store" class="h-[52px] w-auto" height="52"
+                         src="assets/app-store-badge.svg"
+                         width="156">
+                </a>
+                <a class="inline-flex h-[52px] items-center justify-center rounded-[14px] border-[1.5px] border-paper/50 px-6 font-semibold text-paper transition-colors hover:border-paper hover:bg-paper/10"
+                   href="#">
+                    Join the TestFlight beta
+                </a>
+            </div>
+        </div>
+    </section>
 
 </main>
 
 <footer class="border-t border-rule/70">
-  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-    <div class="flex items-center gap-2.5">
-      <img src="assets/icon.png" alt="" width="20" height="20" class="h-5 w-5">
-      <span class="font-semibold">Verse by Verse</span>
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div class="flex items-center gap-2.5">
+            <img alt="" class="h-5 w-5" height="20" src="assets/icon.png" width="20">
+            <span class="font-semibold">Verse by Verse</span>
+        </div>
+        <div class="flex flex-wrap gap-x-7 gap-y-2 text-sm text-muted">
+            <a class="transition-colors hover:text-ink" href="support.html">Support</a>
+            <a class="transition-colors hover:text-ink" href="privacy.html">Privacy</a>
+            <a class="transition-colors hover:text-ink" href="https://github.com/jadenzaleski">GitHub</a>
+        </div>
     </div>
-    <div class="flex flex-wrap gap-x-7 gap-y-2 text-sm text-muted">
-      <a href="support.html" class="transition-colors hover:text-ink">Support</a>
-      <a href="privacy.html" class="transition-colors hover:text-ink">Privacy</a>
-      <a href="https://github.com/jadenzaleski" class="transition-colors hover:text-ink">GitHub</a>
+    <div class="mx-auto max-w-6xl px-5 pb-10 text-xs leading-relaxed text-muted sm:px-8">
+        Scripture quoted on this page is from the World English Bible, which is in the public domain.
     </div>
-  </div>
-  <div class="mx-auto max-w-6xl px-5 pb-10 text-xs leading-relaxed text-muted sm:px-8">
-    Scripture quoted on this page is from the World English Bible, which is in the public domain.
-  </div>
 </footer>
 
-<script src="js/main.js" defer></script>
+<script defer src="js/main.js"></script>
 </body>
 </html>
