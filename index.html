@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Spectral:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,300..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="dist/style.css">
 </head>
 <body class="font-sans antialiased">
@@ -22,7 +22,7 @@
   <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8" aria-label="Main">
     <a href="/" class="flex items-center gap-2.5">
       <img src="assets/favicon.svg" alt="" width="26" height="26" class="rounded-[7px]">
-      <span class="font-serif text-lg font-semibold tracking-tight">Verse by Verse</span>
+      <span class="text-lg font-semibold tracking-tight">Verse by Verse</span>
     </a>
 
     <div class="hidden items-center gap-7 md:flex">
@@ -30,7 +30,7 @@
       <a href="#recitation" class="text-sm text-muted transition-colors hover:text-ink">Recitation</a>
       <a href="support.html" class="text-sm text-muted transition-colors hover:text-ink">Support</a>
       <!-- TODO: replace href with the real App Store (or TestFlight) URL -->
-      <a href="#" class="btn btn-primary btn-sm rounded-full px-4 font-medium">Get the app</a>
+      <a href="#" class="btn btn-primary btn-sm px-4 font-semibold">Get the app</a>
     </div>
 
     <button type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" class="btn btn-ghost btn-sm md:hidden">
@@ -45,7 +45,7 @@
     <a href="#how" class="block py-2 text-muted">How it works</a>
     <a href="#recitation" class="block py-2 text-muted">Recitation</a>
     <a href="support.html" class="block py-2 text-muted">Support</a>
-    <a href="#" class="mt-2 inline-flex rounded-full bg-brand-violet px-4 py-2 text-sm text-paper">Get the app</a>
+    <a href="#" class="mt-2 inline-flex rounded-lg bg-brand-violet px-4 py-2 text-sm font-semibold text-paper">Get the app</a>
   </div>
 </header>
 
@@ -62,14 +62,14 @@
       </p>
 
       <div class="mt-7 flex flex-wrap items-baseline gap-x-5 gap-y-2 text-sm">
-        <span class="font-serif text-muted">Psalm 119:11</span>
+        <span class="text-muted">Psalm 119:11</span>
         <span data-gap-status class="text-brand-violet"></span>
         <button type="button" data-gap-reset hidden class="text-muted underline decoration-rule underline-offset-4 transition-colors hover:text-ink">Hide them again</button>
       </div>
     </div>
 
     <div class="mt-16 md:mt-20">
-      <h1 class="max-w-[24ch] font-serif text-3xl leading-[1.18] font-normal tracking-tight sm:text-4xl">
+      <h1 class="max-w-[24ch] text-3xl leading-[1.2] font-semibold tracking-tight sm:text-4xl">
         Scripture memorization that asks you to say it out loud.
       </h1>
       <p class="mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -77,23 +77,28 @@
         pick the day you review it next. Everything runs on your iPhone. There is no
         account to create.
       </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a href="#" class="btn btn-primary rounded-full px-6 font-medium">Download on the App Store</a>
-        <a href="#how" class="btn btn-ghost rounded-full px-6 font-medium text-muted">See how it works</a>
+      <div class="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+        <!-- TODO: replace href with the App Store listing URL -->
+        <a href="#" class="inline-flex shrink-0 transition-opacity hover:opacity-80">
+          <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="156" height="52" class="h-[52px] w-auto">
+        </a>
+        <!-- TODO: replace href with your public TestFlight invitation link -->
+        <a href="#" class="btn-outlined h-[52px] px-6">Join the TestFlight beta</a>
       </div>
+      <p class="mt-4 text-sm text-muted">TestFlight builds ship ahead of each App Store release.</p>
     </div>
   </section>
 
   <!-- How it works: a real three-step sequence, numbered like verses. -->
   <section id="how" class="border-t border-rule/70 bg-base-200/60">
     <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-      <h2 class="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">How it works</h2>
+      <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">How it works</h2>
 
       <ol class="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-3">
         <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
           <span class="ref-num pt-1.5" aria-hidden="true">1</span>
           <div>
-            <h3 class="font-serif text-xl font-semibold">Add a passage</h3>
+            <h3 class="text-xl font-semibold tracking-tight">Add a passage</h3>
             <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
               Search by book, chapter, and verse range, in the translation you read.
               A passage can be a single verse or a whole psalm.
@@ -104,7 +109,7 @@
         <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
           <span class="ref-num pt-1.5" aria-hidden="true">2</span>
           <div>
-            <h3 class="font-serif text-xl font-semibold">Practice it</h3>
+            <h3 class="text-xl font-semibold tracking-tight">Practice it</h3>
             <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
               Type the passage from memory, or turn on the microphone and recite it.
               Both are graded against the text, word by word.
@@ -115,7 +120,7 @@
         <li class="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-2">
           <span class="ref-num pt-1.5" aria-hidden="true">3</span>
           <div>
-            <h3 class="font-serif text-xl font-semibold">Review when it counts</h3>
+            <h3 class="text-xl font-semibold tracking-tight">Review when it counts</h3>
             <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
               FSRS-6 estimates when you are about to forget each passage and asks for
               it on that day, not before.
@@ -130,7 +135,7 @@
   <section id="recitation" class="border-t border-rule/70">
     <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 md:grid-cols-2 md:gap-16">
       <div>
-        <h2 class="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">It listens to you recite.</h2>
+        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">It listens to you recite.</h2>
         <p class="mt-5 max-w-[48ch] leading-relaxed text-muted">
           Saying a verse from memory is a different skill from recognizing it on the
           page. Verse by Verse transcribes your recitation on your device and marks it
@@ -142,7 +147,7 @@
       </div>
 
       <figure class="rounded-xl border border-rule bg-base-200/50 p-6 sm:p-8">
-        <figcaption class="font-serif text-sm text-muted">Marked against the text</figcaption>
+        <figcaption class="text-sm text-muted">Marked against the text</figcaption>
         <p class="mt-4 font-serif text-xl leading-[1.5] sm:text-2xl">
           I have <span class="said-missed">hidden</span> your word in my heart,
           that I might not <span class="said-extra">ever</span> sin against you.
@@ -166,34 +171,34 @@
   <section class="border-t border-rule/70 bg-base-200/60">
     <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
       <div class="max-w-[46ch]">
-        <h2 class="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">The schedule does the remembering.</h2>
+        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">The schedule does the remembering.</h2>
         <p class="mt-5 leading-relaxed text-muted">
           Each time you practice, FSRS-6 updates how firmly a passage is held and pushes
           the next review further out. Reviews spread apart as the passage settles in.
         </p>
       </div>
 
-      <div class="mt-16 px-8 sm:px-10">
+      <div class="mt-16 pr-4 pl-2 sm:px-6">
         <div class="relative h-0.5 rounded-full bg-gradient-to-r from-brand-green to-brand-violet">
-          <div class="absolute top-1/2 w-14 -translate-x-1/2 -translate-y-1/2 text-center" style="left:0%">
-            <span class="mx-auto block h-3 w-3 rounded-full bg-brand-green ring-4 ring-base-200"></span>
-            <span class="mt-3.5 block text-xs text-muted">1 day</span>
+          <div class="absolute top-1/2 -translate-y-1/2" style="left:0%">
+            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green ring-4 ring-base-200"></span>
+            <span class="absolute top-full mt-3.5 block whitespace-nowrap text-xs text-muted">1 day</span>
           </div>
-          <div class="absolute top-1/2 w-14 -translate-x-1/2 -translate-y-1/2 text-center" style="left:27%">
-            <span class="mx-auto block h-3 w-3 rounded-full bg-brand-green/80 ring-4 ring-base-200"></span>
-            <span class="mt-3.5 block text-xs text-muted">3 days</span>
+          <div class="absolute top-1/2 -translate-y-1/2" style="left:27%">
+            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green/80 ring-4 ring-base-200"></span>
+            <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">3 days</span>
           </div>
-          <div class="absolute top-1/2 w-14 -translate-x-1/2 -translate-y-1/2 text-center" style="left:51%">
-            <span class="mx-auto block h-3 w-3 rounded-full bg-brand-green/60 ring-4 ring-base-200"></span>
-            <span class="mt-3.5 block text-xs text-muted">8 days</span>
+          <div class="absolute top-1/2 -translate-y-1/2" style="left:51%">
+            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green/60 ring-4 ring-base-200"></span>
+            <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">8 days</span>
           </div>
-          <div class="absolute top-1/2 w-14 -translate-x-1/2 -translate-y-1/2 text-center" style="left:74%">
-            <span class="mx-auto block h-3 w-3 rounded-full bg-brand-violet/70 ring-4 ring-base-200"></span>
-            <span class="mt-3.5 block text-xs text-muted">3 weeks</span>
+          <div class="absolute top-1/2 -translate-y-1/2" style="left:74%">
+            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-violet/70 ring-4 ring-base-200"></span>
+            <span class="absolute top-full mt-3.5 block -translate-x-1/2 whitespace-nowrap text-xs text-muted">3 weeks</span>
           </div>
-          <div class="absolute top-1/2 w-14 -translate-x-1/2 -translate-y-1/2 text-center" style="left:100%">
-            <span class="mx-auto block h-3 w-3 rounded-full bg-brand-violet ring-4 ring-base-200"></span>
-            <span class="mt-3.5 block text-xs text-muted">2 months</span>
+          <div class="absolute top-1/2 -translate-y-1/2" style="left:100%">
+            <span class="block h-3 w-3 -translate-x-1/2 rounded-full bg-brand-violet ring-4 ring-base-200"></span>
+            <span class="absolute top-full right-0 mt-3.5 block whitespace-nowrap text-xs text-muted">2 months</span>
           </div>
         </div>
       </div>
@@ -206,7 +211,7 @@
   <section id="privacy" class="border-t border-rule/70">
     <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 md:grid-cols-2 md:gap-16">
       <div>
-        <h2 class="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">Your practice stays on your phone.</h2>
+        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Your practice stays on your phone.</h2>
         <p class="mt-5 max-w-[48ch] leading-relaxed text-muted">
           There is no account, no login, and no sync server. Your passages, your progress,
           and your recitations live in local storage on your device. The only thing Verse
@@ -219,29 +224,34 @@
 
       <dl class="self-center">
         <div class="border-t border-rule py-5">
-          <dt class="font-serif text-lg font-semibold">Nothing to sign up for</dt>
+          <dt class="text-lg font-semibold tracking-tight">Nothing to sign up for</dt>
           <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">No account, no email address, no password.</dd>
         </div>
         <div class="border-t border-rule py-5">
-          <dt class="font-serif text-lg font-semibold">Recitation never leaves the device</dt>
+          <dt class="text-lg font-semibold tracking-tight">Recitation never leaves the device</dt>
           <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">Your voice is transcribed on your iPhone and the audio is not uploaded.</dd>
         </div>
         <div class="border-t border-b border-rule py-5">
-          <dt class="font-serif text-lg font-semibold">No trackers</dt>
+          <dt class="text-lg font-semibold tracking-tight">No trackers</dt>
           <dd class="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">No third-party analytics or advertising software of any kind.</dd>
         </div>
       </dl>
     </div>
   </section>
 
-  <section class="border-t border-rule/70 bg-ink text-paper">
+  <section class="mesh-band border-t border-rule/70 text-paper">
     <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-      <h2 class="max-w-[20ch] font-serif text-3xl leading-tight font-normal tracking-tight sm:text-4xl">
+      <h2 class="max-w-[20ch] text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
         Start with one verse.
       </h2>
-      <a href="#" class="mt-8 inline-flex rounded-full bg-paper px-6 py-3 font-medium text-ink transition-opacity hover:opacity-90">
-        Download on the App Store
-      </a>
+      <div class="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+        <a href="#" class="inline-flex shrink-0 transition-opacity hover:opacity-80">
+          <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="156" height="52" class="h-[52px] w-auto">
+        </a>
+        <a href="#" class="inline-flex h-[52px] items-center justify-center rounded-[14px] border-[1.5px] border-paper/50 px-6 font-semibold text-paper transition-colors hover:border-paper hover:bg-paper/10">
+          Join the TestFlight beta
+        </a>
+      </div>
     </div>
   </section>
 
@@ -251,7 +261,7 @@
   <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
     <div class="flex items-center gap-2.5">
       <img src="assets/favicon.svg" alt="" width="20" height="20" class="rounded-[5px]">
-      <span class="font-serif font-semibold">Verse by Verse</span>
+      <span class="font-semibold">Verse by Verse</span>
     </div>
     <div class="flex flex-wrap gap-x-7 gap-y-2 text-sm text-muted">
       <a href="support.html" class="transition-colors hover:text-ink">Support</a>
