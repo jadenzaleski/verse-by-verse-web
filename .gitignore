@@ -25,3 +25,5 @@ dist/
 
 .DS_Store
 .idea
+# Playwright MCP browser output (screenshots, snapshots, console logs)
+.playwright-mcp/

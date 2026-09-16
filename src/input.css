@@ -7,6 +7,12 @@
   themes: false;
 }
 
+/* Not the OS-level `dark:` (prefers-color-scheme) — this follows our own
+   theme-controller checkbox, so it stays correct even when the user
+   overrides the OS preference via the theme dropdown. Used for swapping
+   the app icon to its dark-mode PNG. */
+@custom-variant theme-dark (&:where(:root:has(input.theme-controller[value="vbv-dark"]:checked) *));
+
 @plugin "daisyui/theme" {
   name: "vbv";
   default: true;
@@ -30,8 +36,42 @@
   --color-success: #5bb275;
   --color-warning: #a8801f;
   --color-error: #b2404b;
+  --color-apple-blue: #007aff;
 
   /* AppRadius.sm / .md / .lg from the iOS app */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.875rem;
+  --radius-box: 1.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "vbv-dark";
+  default: false;
+  color-scheme: dark;
+
+  --color-base-100: #14121d;
+  --color-base-200: #1b1830;
+  --color-base-300: #262140;
+  --color-base-content: #f2f0f7;
+
+  --color-primary: #8f7fd6;
+  --color-primary-content: #1b1830;
+  --color-secondary: #7bc794;
+  --color-secondary-content: #0d1f16;
+  --color-accent: #7bc794;
+  --color-accent-content: #0d1f16;
+  --color-neutral: #1b1830;
+  --color-neutral-content: #f2f0f7;
+
+  --color-info: #8f7fd6;
+  --color-success: #7bc794;
+  --color-warning: #caa04a;
+  --color-error: #d9636e;
+  --color-apple-blue: #007aff;
+
   --radius-selector: 0.5rem;
   --radius-field: 0.875rem;
   --radius-box: 1.25rem;
@@ -61,6 +101,21 @@
     --color-brand-violet: color(display-p3 0.36475 0.2981 0.67432);
     --color-brand-green: color(display-p3 0.44312 0.69043 0.47852);
   }
+}
+
+/* --color-ink/paper/muted/rule/brand-violet/brand-green live in the bare
+   @theme block above (so Tailwind generates text-ink, bg-paper, etc.), not
+   inside a daisyUI theme block, so daisyUI's theme engine never auto-scopes
+   them. Re-declare their dark values by hand under the same theme-controller
+   selector daisyUI's own vbv-dark tokens are scoped to, so both sets of
+   tokens flip together. */
+:root:has(input.theme-controller[value="vbv-dark"]:checked) {
+  --color-ink: #f2f0f7;
+  --color-paper: #14121d;
+  --color-muted: #9d97b5;
+  --color-rule: #2c2740;
+  --color-brand-violet: #8f7fd6;
+  --color-brand-green: #7bc794;
 }
 
 html {
@@ -106,9 +161,11 @@ body {
 }
 
 /* Echoes the mesh gradient the app paints behind study sets, kept to the
-   single closing band so it reads as signature rather than decoration. */
+   single closing band so it reads as signature rather than decoration.
+   Fixed colors, not theme tokens: this band stays dark in both themes. */
 .mesh-band {
-  background-color: var(--color-ink);
+  background-color: #191627;
+  color: #f7f6fa;
   background-image:
     radial-gradient(62% 90% at 10% 12%, color-mix(in srgb, var(--color-brand-green) 40%, transparent), transparent 68%),
     radial-gradient(58% 85% at 90% 82%, color-mix(in srgb, var(--color-brand-violet) 58%, transparent), transparent 70%);
@@ -119,7 +176,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.875rem;
+  border-radius: 0.5rem;
   border: 1.5px solid color-mix(in srgb, var(--color-brand-violet) 50%, transparent);
   color: var(--color-brand-violet);
   font-weight: 600;
@@ -131,9 +188,64 @@ body {
   background-color: color-mix(in srgb, var(--color-brand-violet) 6%, transparent);
 }
 
+.btn-testflight {
+  background-color: var(--color-apple-blue);
+  border-color: var(--color-apple-blue);
+  color: var(--color-white);
+}
+
+.btn-testflight:hover {
+  border-color: var(--color-apple-blue);
+  background-color: transparent;
+  color: var(--color-apple-blue);
+}
+
+.btn-testflight-outline {
+  background-color: transparent;
+  border-color: var(--color-apple-blue);
+  color: var(--color-apple-blue);
+}
+
+.btn-testflight-outline:hover {
+  border-color: var(--color-apple-blue);
+  background-color: var(--color-apple-blue);
+  color: var(--color-white);
+}
+
+/* Shared layout/type patterns repeated across index.html and privacy.html.
+   Kept as real Tailwind utilities (via @apply) rather than hand-rolled CSS
+   so responsive prefixes and hover variants keep working at the call site. */
+@utility nav-link {
+  @apply text-sm text-muted transition-colors hover:text-ink;
+}
+
+@utility mobile-nav-link {
+  @apply block py-2 text-muted;
+}
+
+@utility footer-link {
+  @apply transition-colors hover:text-ink;
+}
+
+@utility section {
+  @apply mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24;
+}
+
+@utility section-title {
+  @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+}
+
+@utility copy {
+  @apply leading-relaxed text-muted;
+}
+
+@utility copy-sm {
+  @apply text-[0.9375rem] leading-relaxed text-muted;
+}
+
 /* Marginal verse-style reference numbers. */
 .ref-num {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif), serif;
   font-size: 0.72em;
   font-weight: 600;
   vertical-align: super;

@@ -11,5 +11,8 @@
     "@tailwindcss/cli": "^4.3.3",
     "daisyui": "^5.7.34",
     "tailwindcss": "^4.3.3"
+  },
+  "dependencies": {
+    "lucide": "^1.46.0"
   }
 }

@@ -1,6 +1,6 @@
 # Verse by Verse — website
 
-Landing, support, and privacy pages for the [Verse by Verse](https://github.com/jadenzaleski) iOS app.
+Landing and privacy pages for the [Verse by Verse](https://github.com/jadenzaleski) iOS app.
 Plain HTML with Tailwind CSS and daisyUI. No templating, no framework, no router.
 
 Whatever is on `master` is live.
@@ -30,11 +30,10 @@ but the server matches how the site is actually served.
 ## Layout
 
 ```
-index.html          landing page
-support.html        FAQ + contact
+index.html          landing page (contact section at #contact)
 privacy.html        privacy policy
 src/input.css       theme tokens + the handful of custom classes
-js/main.js          mobile nav toggle (that is all)
+js/main.js          mobile nav toggle + footer year
 assets/             app icon, App Store badge
 dist/style.css      compiled — gitignored, built in CI
 ```
