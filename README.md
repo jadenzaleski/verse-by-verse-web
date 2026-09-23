@@ -30,13 +30,18 @@ but the server matches how the site is actually served.
 ## Layout
 
 ```
-index.html          landing page (contact section at #contact)
+index.html          landing page (contact lives in the footer, at #contact)
 privacy.html        privacy policy
-src/input.css       theme tokens + the handful of custom classes
-js/main.js          mobile nav toggle + footer year
-assets/             app icon, App Store badge
+src/input.css       accent palettes, theme tokens, the few custom classes
+js/main.js          appearance menu, scroll reveal, footer year
+assets/             app icon, App Store badges
 dist/style.css      compiled — gitignored, built in CI
 ```
+
+The landing page is deliberately short: hero, three features, one look at a
+graded recitation, a closing call to action. It exists to get someone to the
+App Store, so anything that reads as documentation belongs in the app or in
+the policy page, not here.
 
 ## Styling
 
@@ -53,8 +58,39 @@ the two stay in step:
 | `--color-brand-green`, `--color-brand-violet` | the icon gradient in `logo.icon/icon.json` |
 | `--radius-selector` / `-field` / `-box` | `AppRadius.sm` / `.md` / `.lg` |
 
-daisyUI supplies `btn` and the FAQ `collapse`. `.btn-outlined` is the app's
-`OutlinedButtonStyle` ported over.
+daisyUI supplies `btn`, `card` and `menu`. `.btn-outlined` is the app's
+`OutlinedButtonStyle` ported over, and `.btn-outlined-invert` is the same
+button reversed for the dark closing band.
+
+## Appearance
+
+Two independent choices, both restored before first paint by a small inline
+script in each page's `<head>`, and both persisted in `localStorage`:
+
+| Attribute on `<html>` | Stored as | Values |
+| --- | --- | --- |
+| `data-theme` | `theme-mode` | `vbv` / `vbv-dark`, chosen from system, light, or dark |
+| `data-accent` | `theme-accent` | one of the seven palettes at the top of `src/input.css` |
+
+`theme-mode` is stored separately from `data-theme` because "system" is a third
+state the attribute cannot express.
+
+The accents are named after the app's `MeshTheme` cases, so the site and the
+app use one vocabulary. Each palette declares four raw values and nothing
+else — an accent and its gradient partner, in a light and a dark version — and
+the rest of the stylesheet only ever reads `--brand` and `--brand-alt`. That is
+what lets a color choice and a light/dark choice compose without either knowing
+about the other.
+
+Two things to keep in mind when adding a palette:
+
+- The accent is used for text, so it needs 4.5:1 against `--color-paper` in its
+  light version and against the dark `--color-paper` in its dark one. The `-alt`
+  value is decorative and has no such bar.
+- The selector must stay a bare `[data-accent="…"]`. Those same rules scope a
+  palette to one swatch button in the picker, which is how each swatch paints
+  itself. Anything below the palettes that touches `--brand-*` on a plain
+  `:root` will override every accent at once.
 
 ## Deploy
 
@@ -81,3 +117,5 @@ Not done yet:
    at `<username>.github.io`. Turn on "Enforce HTTPS" once DNS resolves.
 3. **Real links.** The App Store and TestFlight URLs are `href="#"` placeholders,
    marked with `TODO` comments in `index.html`.
+4. **Open Graph image.** `og:image` currently points at the app icon, which
+   crops oddly in a link preview. A 1200x630 card would be better.
