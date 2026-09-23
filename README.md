@@ -106,17 +106,8 @@ silently missing from the published site.
 To watch a deploy, or to re-run one without pushing, use the Actions tab
 (the workflow also accepts a manual `workflow_dispatch` run).
 
-## One-time setup
+## TODO
 
-Done: Pages source is set to GitHub Actions, and the site is live at
-[versebyverse.jadenzaleski.com](https://versebyverse.jadenzaleski.com) via a
-`CNAME` record in Cloudflare DNS (proxied) pointing at
-`jadenzaleski.github.io`. The `CNAME` file at the repo root carries the
-domain through every deploy.
-
-Not done yet:
-
-1. **Real links.** The App Store and TestFlight URLs are `href="#"` placeholders,
-   marked with `TODO` comments in `index.html`.
-2. **Open Graph image.** `og:image` currently points at the app icon, which
-   crops oddly in a link preview. A 1200x630 card would be better.
+- **Open Graph image.** `og:image` in `index.html` currently points at
+  `assets/app-logo.png`, the square app icon, which crops oddly in a link
+  preview. A purpose-built 1200x630 card would be better.
