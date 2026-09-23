@@ -108,14 +108,15 @@ To watch a deploy, or to re-run one without pushing, use the Actions tab
 
 ## One-time setup
 
+Done: Pages source is set to GitHub Actions, and the site is live at
+[versebyverse.jadenzaleski.com](https://versebyverse.jadenzaleski.com) via a
+`CNAME` record in Cloudflare DNS (proxied) pointing at
+`jadenzaleski.github.io`. The `CNAME` file at the repo root carries the
+domain through every deploy.
+
 Not done yet:
 
-1. **Settings → Pages → Source: GitHub Actions.** Without this the workflow
-   builds but cannot publish.
-2. **Custom domain.** Add a `CNAME` file at the repo root containing the domain,
-   then point an apex `A` record set at GitHub's Pages IPs and a `www` `CNAME`
-   at `<username>.github.io`. Turn on "Enforce HTTPS" once DNS resolves.
-3. **Real links.** The App Store and TestFlight URLs are `href="#"` placeholders,
+1. **Real links.** The App Store and TestFlight URLs are `href="#"` placeholders,
    marked with `TODO` comments in `index.html`.
-4. **Open Graph image.** `og:image` currently points at the app icon, which
+2. **Open Graph image.** `og:image` currently points at the app icon, which
    crops oddly in a link preview. A 1200x630 card would be better.
