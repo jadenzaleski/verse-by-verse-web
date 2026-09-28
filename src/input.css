@@ -266,20 +266,6 @@ body {
   }
 }
 
-/* Recitation transcript marks. */
-.said-missed {
-  color: var(--color-muted);
-  border-bottom: 2px solid var(--color-brand);
-  padding: 0 0.06em;
-}
-
-.said-extra {
-  color: var(--color-muted);
-  text-decoration: line-through;
-  text-decoration-color: var(--color-brand);
-  text-decoration-thickness: 2px;
-}
-
 /* A soft wash of the accent behind the hero, echoing the mesh the app paints
    behind a study set. Deliberately faint — it should register as warmth on the
    page, not as a graphic. */

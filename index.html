@@ -25,9 +25,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,300..600&display=swap"
           rel="stylesheet">
     <link href="dist/style.css" rel="stylesheet">
-    <!-- Restore the saved appearance before first paint, so the page never
-         flashes the wrong scheme or accent. Deliberately inline and blocking:
-         deferring it is what causes the flash. -->
     <script>
         (function () {
             var el = document.documentElement;
@@ -50,7 +47,7 @@
 <a class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
    href="#main">Skip to content</a>
 
-<header class="sticky top-0 z-40 border-b border-rule/70 bg-paper/80 backdrop-blur-md">
+<header class="sticky top-0 z-40 border-b border-rule/70 bg-paper/80 backdrop-blur-xs">
     <nav aria-label="Main" class="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3.5 sm:px-8">
         <a class="flex items-center gap-2.5" href="/">
             <img alt="" class="h-6.5 w-6.5 bg-transparent" src="assets/logo.svg">
@@ -114,11 +111,11 @@
                  src="assets/app-logo-dark.png">
 
             <h1 class="mx-auto mt-9 max-w-[16ch] text-4xl leading-[1.1] font-semibold tracking-tight sm:text-6xl">
-                Learn scripture by heart.
+                Verse by Verse
             </h1>
             <p class="mx-auto mt-6 max-w-[46ch] text-lg copy">
-                Add a passage, say it out loud, and review it right before you would have
-                forgotten it.
+                Memorize what's important to you, one verse at a time.
+
             </p>
 
             <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -132,7 +129,7 @@
                 <a class="btn-outlined h-13 px-6" href="https://testflight.apple.com/join/2D4ByZCE">Join the beta</a>
             </div>
 
-            <p class="mt-6 text-sm text-muted">iPhone · iOS 26 or later · No account</p>
+            <p class="mt-6 text-sm text-muted">iOS 27.0+</p>
         </div>
     </section>
 
@@ -142,24 +139,21 @@
                 <i aria-hidden="true" class="w-6 text-brand" data-lucide="mic"></i>
                 <h2 class="mt-4 text-xl font-semibold tracking-tight">Say it out loud</h2>
                 <p class="mt-2.5 copy-sm">
-                    Recite from memory. Your iPhone transcribes it and marks every word you
-                    got, missed, or added.
+                    Verse by Verse lets you recite out loud, or type just the first letter of each word.
                 </p>
             </div>
             <div>
                 <i aria-hidden="true" class="w-6 text-brand" data-lucide="calendar-check"></i>
                 <h2 class="mt-4 text-xl font-semibold tracking-tight">Reviewed at the right time</h2>
                 <p class="mt-2.5 copy-sm">
-                    Spaced repetition works out when a passage is about to slip, and brings it
-                    back that day.
+                    Verse by Verse intelligently schedules reviews so a passage always resurfaces just before you'd start to forget it.
                 </p>
             </div>
             <div>
                 <i aria-hidden="true" class="w-6 text-brand" data-lucide="lock"></i>
-                <h2 class="mt-4 text-xl font-semibold tracking-tight">Stays on your phone</h2>
+                <h2 class="mt-4 text-xl font-semibold tracking-tight">Your data, not ours.</h2>
                 <p class="mt-2.5 copy-sm">
-                    No account, no sync, no trackers. Your passages and your voice never leave
-                    the device.
+                    Verse by Verse keeps everything local. No account, no external sync, no in-app purchases.
                 </p>
             </div>
         </div>
@@ -168,25 +162,30 @@
     <section class="reveal border-t border-rule/70" id="recitation">
         <div class="section grid items-center gap-12 md:grid-cols-2 md:gap-16">
             <div>
-                <h2 class="section-title max-w-[16ch]">See exactly what you missed.</h2>
+                <h2 class="section-title max-w-[16ch]">Watch your memory get stronger.</h2>
                 <p class="mt-5 max-w-[44ch] copy">
-                    Saying a verse is a different skill from recognizing it. Every recitation
-                    comes back marked against the text, word by word.
+                    Every passage has a memory score that rises the more you practice it. See at a glance what's solid and what needs another pass.
                 </p>
             </div>
 
             <figure class="card border border-rule bg-base-200/50">
-                <div class="card-body gap-4 p-6 sm:p-8">
-                    <figcaption class="text-sm text-muted">Psalm 119:11</figcaption>
-                    <p class="font-serif text-xl leading-[1.5] sm:text-2xl">
-                        I have <span class="said-missed">hidden</span> your word in my heart,
-                        that I might not <span class="said-extra">ever</span> sin against you.
-                    </p>
-                    <div class="divider my-0"></div>
-                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
-                        <span><span class="font-medium text-ink">14</span> of 15 words</span>
-                        <span class="badge badge-primary badge-sm">1 missed</span>
-                        <span class="badge badge-primary badge-soft badge-sm">1 added</span>
+                <div class="card-body items-center gap-4 p-6 text-center sm:p-8">
+                    <figcaption class="self-start text-sm text-muted">Psalm 119:11</figcaption>
+                    <div class="radial-progress bg-base-300 text-brand" style="--value:92; --size:7rem; --thickness:7px;"
+                         aria-valuenow="92" role="progressbar">
+                        <span class="text-2xl font-semibold text-ink">92%</span>
+                    </div>
+                    <p class="text-sm text-muted">Memory score</p>
+                    <div class="divider my-0 w-full"></div>
+                    <div class="stats stats-vertical bg-transparent text-center shadow-none sm:stats-horizontal">
+                        <div class="stat place-items-center px-4 py-0">
+                            <div class="stat-value text-lg">14</div>
+                            <div class="stat-desc">Sessions</div>
+                        </div>
+                        <div class="stat place-items-center px-4 py-0">
+                            <div class="stat-value text-lg">2 days ago</div>
+                            <div class="stat-desc">Last practiced</div>
+                        </div>
                     </div>
                 </div>
             </figure>
@@ -196,7 +195,7 @@
     <section class="mesh-band border-t border-rule/70">
         <div class="section text-center">
             <h2 class="mx-auto max-w-[18ch] text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
-                Start with one verse.
+                One verse at a time.
             </h2>
             <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <!-- TODO: replace href with the App Store listing URL -->
